@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Google fonts 추가    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <title>나만의 쇼핑몰_김선호</title>
+    <style>
+        * {
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+        .wrap {
+            width: 700px;
+            margin: 50px auto auto auto;
+        }
+        .img {
+            width: 700px;
+            height: 500px;
+
+            background-image: url("https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80.png");
+            background-position: center;
+            background-size: cover;
+
+        }
+        /*img{*/
+        /*    max-width: 100%;*/
+        /*    max-height: 100%;*/
+        /*}*/
+        .description {
+            font-size: 20px;
+        }
+        .description_price {
+            font-weight: normal;
+            font-size: 20px;
+
+        }
+        .btn-primary {
+            font-size: 20px;
+
+            display: block;
+            width: auto;
+            margin: auto;
+
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        function ordered() {
+            alert("주문완료!!");
+        }
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="img"> </div>
+<!--    <img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80.png">-->
+        <div class="description">
+            <h1>사과를 팝니다 <span class="description_price">가격: 1,000원/개</span></h1>
+            <p>이 사과는 먹으면 기분이 좋아지는 효과가 있어요. 이유는 그냥 달고 맛있거든요😁</p>
+        </div>
+        <div class="orderbox">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">주문자 이름</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Default"
+                       aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">개수</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                    <option selected></option>
+                    <option value="1">1개</option>
+                    <option value="2">3개</option>
+                    <option value="3">6개</option>
+                    <option value="3">12개</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">주소</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Default"
+                       aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">전화번호</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Default"
+                       aria-describedby="inputGroup-sizing-default">
+            </div>
+            <button onclick = ordered() type="button" class="btn-primary">주문하기</button>
+        </div>
+    </div>
+</body>
+</html>
