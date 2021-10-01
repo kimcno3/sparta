@@ -27,18 +27,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 
     <style>
-        *{
+        * {
             font-family: 'Jua', sans-serif;
         }
+
         .wrap {
-            width:900px;
+            width: 900px;
             margin: auto;
         }
+
         .commend {
             color: blue;
             font-weight: bold;
         }
-        .form{
+
+        .form {
             display: none;
 
             width: auto;
@@ -51,92 +54,137 @@
         }
     </style>
     <script>
-     function openclose() {
-         let status = $('#postbox').css('display');
-         if (status == 'block')  {
-            $('#postbox').hide();
-            $('#btn-postbox').text('포스트박스 열기');
-         } else {
-             $('#postbox').show();
-             $('#btn-postbox').text('포스트박스 닫기');
-         }
+        $(document).ready(function () {
+            $('#cards-box').empty();
+            listing();
+        })
 
-     }
+        function listing() {
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/post",
+                data: {},
+                success: function (response) {
+                    let rows = response['articles']
+                    for (let i = 0; i < rows.length; i++) {
+                        let comment = rows[i]['comment']
+                        let desc = rows[i]['desc']
+                        let image = rows[i]['image']
+                        let title = rows[i]['title']
+                        let url = rows[i]['url']
 
+                        let temp_html = `<div class="card">
+                                            <img class="card-img-top" src="${image}" alt="Card image cap">
+                                            <div class="card-body">
+                                                 <h5 class="card-title"><a href="${url}">${title}</a></h5>
+                                                 <p class="card-text">${desc}</p>
+                                                 <p class="card-text commend">${comment}</p>
+                                            </div>
+                                         </div>`
+
+                        $('#cards-box').append(temp_html);
+                    }
+                }
+            })
+        }
+
+        function openclose() {
+            let status = $('#postbox').css('display');
+            if (status == 'block') {
+                $('#postbox').hide();
+                $('#btn-postbox').text('포스트박스 열기');
+            } else {
+                $('#postbox').show();
+                $('#btn-postbox').text('포스트박스 닫기');
+            }
+
+        }
     </script>
 </head>
 
 <body>
-    <div class="wrap">
-        <div class="jumbotron">
-            <h1 class="display-4">나홀로 링크 메모장!</h1>
-            <p class="lead">중요한 링크를 저장해두고, 나중에 볼 수 있는 공간입니다</p>
-            <hr class="my-4">
-            <p class="lead">
-                <a onclick = openclose() id="btn-postbox" class="btn btn-primary btn-lg" href="#" role="button">포스팅박스 열기</a>
-            </p>
+<div class="wrap">
+    <div class="jumbotron">
+        <h1 class="display-4">나홀로 링크 메모장!</h1>
+        <p class="lead">중요한 링크를 저장해두고, 나중에 볼 수 있는 공간입니다</p>
+        <hr class="my-4">
+        <p class="lead">
+            <a onclick=openclose() id="btn-postbox" class="btn btn-primary btn-lg" href="#" role="button">포스팅박스 열기</a>
+        </p>
+    </div>
+    <div class="form" id="postbox">
+        <div class="form-group">
+            <label for="exampleInputEmail1">아티클 URL</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                   placeholder="">
         </div>
-        <div class="form" id="postbox">
-            <div class="form-group">
-                <label for="exampleInputEmail1">아티클 URL</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                       placeholder="">
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlTextarea1">간단 커멘트</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">기사저장</button>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">간단 커멘트</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
-        <div class="card-columns" id="cards-box">
-            <div class="card">
-                <img class="card-img-top" src="https://images.unsplash.com/photo-1632746973199-14de86b1c430?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title"><a href="...">여기 기사 제목이 들어가죠</a></h5>
-                    <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
-                    <p class="card-text commend">여기에 코멘트가 들어갑니다.</p>
-                </div>
+        <button type="submit" class="btn btn-primary">기사저장</button>
+    </div>
+    <div class="card-columns" id="cards-box">
+        <div class="card">
+            <img class="card-img-top"
+                 src="https://images.unsplash.com/photo-1632746973199-14de86b1c430?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"
+                 alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><a href="...">여기 기사 제목이 들어가죠</a></h5>
+                <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
+                <p class="card-text commend">여기에 코멘트가 들어갑니다.</p>
             </div>
-            <div class="card">
-                <img class="card-img-top" src="https://images.unsplash.com/photo-1632746973199-14de86b1c430?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title"><a href="...">여기 기사 제목이 들어가죠</a></h5>
-                    <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
-                    <p class="card-text commend">여기에 코멘트가 들어갑니다.</p>
-                </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top"
+                 src="https://images.unsplash.com/photo-1632746973199-14de86b1c430?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"
+                 alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><a href="...">여기 기사 제목이 들어가죠</a></h5>
+                <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
+                <p class="card-text commend">여기에 코멘트가 들어갑니다.</p>
             </div>
-            <div class="card">
-                <img class="card-img-top" src="https://images.unsplash.com/photo-1632746973199-14de86b1c430?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title"><a href="...">여기 기사 제목이 들어가죠</a></h5>
-                    <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
-                    <p class="card-text commend">여기에 코멘트가 들어갑니다.</p>
-                </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top"
+                 src="https://images.unsplash.com/photo-1632746973199-14de86b1c430?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"
+                 alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><a href="...">여기 기사 제목이 들어가죠</a></h5>
+                <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
+                <p class="card-text commend">여기에 코멘트가 들어갑니다.</p>
             </div>
-            <div class="card">
-                <img class="card-img-top" src="https://images.unsplash.com/photo-1632746973199-14de86b1c430?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title"><a href="...">여기 기사 제목이 들어가죠</a></h5>
-                    <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
-                    <p class="card-text commend">여기에 코멘트가 들어갑니다.</p>
-                </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top"
+                 src="https://images.unsplash.com/photo-1632746973199-14de86b1c430?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"
+                 alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><a href="...">여기 기사 제목이 들어가죠</a></h5>
+                <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
+                <p class="card-text commend">여기에 코멘트가 들어갑니다.</p>
             </div>
-            <div class="card">
-                <img class="card-img-top" src="https://images.unsplash.com/photo-1632746973199-14de86b1c430?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title"><a href="...">여기 기사 제목이 들어가죠</a></h5>
-                    <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
-                    <p class="card-text commend">여기에 코멘트가 들어갑니다.</p>
-                </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top"
+                 src="https://images.unsplash.com/photo-1632746973199-14de86b1c430?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"
+                 alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><a href="...">여기 기사 제목이 들어가죠</a></h5>
+                <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
+                <p class="card-text commend">여기에 코멘트가 들어갑니다.</p>
             </div>
-            <div class="card">
-                <img class="card-img-top" src="https://images.unsplash.com/photo-1632746973199-14de86b1c430?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title"><a href="...">여기 기사 제목이 들어가죠</a></h5>
-                    <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
-                    <p class="card-text commend">여기에 코멘트가 들어갑니다.</p>
-                </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top"
+                 src="https://images.unsplash.com/photo-1632746973199-14de86b1c430?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"
+                 alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><a href="...">여기 기사 제목이 들어가죠</a></h5>
+                <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
+                <p class="card-text commend">여기에 코멘트가 들어갑니다.</p>
             </div>
+        </div>
 
     </div>
 </body>
