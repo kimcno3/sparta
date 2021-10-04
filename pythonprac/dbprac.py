@@ -3,12 +3,14 @@ client = MongoClient('localhost', 27017)
 db = client.dbsparta
 
 # insert / find / update / delete : 네가지 기능
+
 # db.ooo(collection 이름, 큰 범주로 데이터를 구분).명령어
+
 # 저장 - 예시
 doc = {'name':'bobby','age':21}
 db.users.insert_one(doc)
 
-# 한 개 찾기 - 예시
+# # 한 개 찾기 - 예시
 user = db.users.find_one({'name':'bobby'})
 
 # 여러개 찾기 - 예시 ( _id 값은 제외하고 출력)

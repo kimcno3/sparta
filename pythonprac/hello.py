@@ -10,7 +10,7 @@ headers = {'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/
 data = requests.get('https://movie.naver.com/movie/sdb/rank/rmovie.nhn?sel=pnt&date=20200303',headers=headers)
 
 soup = BeautifulSoup(data.text, 'html.parser')
-
+print(soup)
 trs = soup.select('#old_content > table > tbody > tr')
 
 for tr in trs :
