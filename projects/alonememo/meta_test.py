@@ -12,4 +12,3 @@ ogtitle = soup.select_one('meta[property="og:title"]')['content']
 ogimage = soup.select_one('meta[property="og:image"]')['content']
 ogdescription = soup.select_one('meta[property="og:description"]')['content']
 print(ogtitle, ogimage, ogdescription)
-
