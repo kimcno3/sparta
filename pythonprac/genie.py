@@ -13,15 +13,16 @@ soup = BeautifulSoup(data.text, 'html.parser')
 trs = soup.select('#body-content > div.newest-list > div > table > tbody > tr')
 
 for tr in trs :
-    a_rank = tr.select_one('td.number')
-    a_title = tr.select_one('td.info > a.title.ellipsis')
-    a_singer = tr.select_one('td.info > a.artist.ellipsis')
+    ranks = tr.select_one('td.number')
+    titles = tr.select_one('td.info > a.title.ellipsis')
+    singers = tr.select_one('td.info > a.artist.ellipsis')
 
-    rank = a_rank.text.split('\n')[0]
-    title = a_title.text.strip()
-    singer = a_singer.text
+    rank = ranks.text.split('\n')[0]
+    title = titles.text.strip()
+    singer = singers.text
 
-    print(rank, title, singer)
+    print(titles.text.strip())
+    # print(rank, title, singer)
 
     # doc = {
     #     'title' : title,
