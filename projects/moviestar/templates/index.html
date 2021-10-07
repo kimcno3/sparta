@@ -86,9 +86,9 @@
                     type: 'POST',
                     url: '/api/like',
                     data: {name_give:name}, // name 변수에 들어온 값을 name_give 라는 이름으로 서버에 전송 , 전송이 잘 되면(success) 서버로부터 return 값을 response 이름으로 받아와 함수 실행
-                    success: function (response) {
-                        alert(response['msg']);
-                        window.location.reload();
+                    success: function (response) { // 서버에서 제대로 데이터를 받았다면 success 실행, 서버로부터 return 값을 response 이름으로 받아와 함수 실행
+                        alert(response['msg']); // 메세지값 alert
+                        window.location.reload(); // 페이지 리로드
 
                     }
                 });

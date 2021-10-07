@@ -35,9 +35,9 @@ def like_star():
 
 @app.route('/api/delete', methods=['POST'])
 def delete_star():
-    name_receive = request.form['name_give']
-    db.mystar.delete_one({'name': name_receive})
-    return jsonify({'msg': '삭제되었습니다!!'})
+    name_receive = request.form['name_give'] # 브라우저에서 보내준 데이터(post방식은 data 딕셔너리에 입력)를 받아와 변수에 담는다
+    db.mystar.delete_one({'name': name_receive}) # DB에 저장
+    return jsonify({'msg': '삭제되었습니다!!'}) # 위 과정이 완료되면 return값 전송
 
 
 if __name__ == '__main__':
