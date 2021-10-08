@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8cffb8c3-19ce-43f4-aa52-ba71253fbf0a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../projects/moviestar/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/../projects/moviestar/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../projects/moviestar/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../projects/moviestar/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +110,8 @@
       <workItem from="1633504053065" duration="665000" />
       <workItem from="1633514113596" duration="593000" />
       <workItem from="1633586173381" duration="42000" />
-      <workItem from="1633593135639" duration="595000" />
+      <workItem from="1633593135639" duration="665000" />
+      <workItem from="1633681819624" duration="2790000" />
     </task>
     <servers />
   </component>
