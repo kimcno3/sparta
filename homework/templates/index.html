@@ -87,19 +87,37 @@
             let address = $('#address-text').val()
             let phonenumber = $('#phonenumber-text').val()
 
-            $.ajax({
-                type: "POST",
-                url: "/order",
-                data: { name_give: name,
+            let only_number = isNaN(phonenumber.replace('-'))
+
+            if (name == ''){
+                alert('이름을 입력하세요!');
+            } else if (count == ''){
+                alert('개수를 입력하세요!');
+            } else if (address == ''){
+                alert('주소를 입력하세요!');
+            } else if (phonenumber == ''){
+                alert('번호를 입력하세요!');
+            } else if (phonenumber.includes('-', 3) == false) {
+                alert('양식을 지켜서 입력하세요!(010-xxxx-xxxx)');
+            } else if (phonenumber.includes('-', 8) == false) {
+                alert('양식을 지켜서 입력하세요!(010-xxxx-xxxx)');
+            } else if (only_number == true){
+                alert('문자가 입력되었습니다. 입력한 번호를 다시 확인하세요!!');
+            } else {
+                $.ajax({
+                    type: "POST",
+                    url: "/order",
+                    data: { name_give: name,
                         count_give: count,
                         address_give: address,
                         phonenumber_give: phonenumber
-                },
-                success: function (response) {
+                    },
+                    success: function (response) {
                         alert(response["msg"]);
                         window.location.reload();
-                }
-            })
+                    }
+                })
+            }
         }
 
         function order_listing() {
