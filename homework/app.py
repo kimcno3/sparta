@@ -23,6 +23,7 @@ def save_order():
     address_receive = request.form['address_give']
     phonenumber_receive = request.form['phonenumber_give']
 
+
     doc = {
         'name' : name_receive,
         'count' : count_receive,
