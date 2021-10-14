@@ -88,7 +88,7 @@
             let address = $('#address-text').val()
             let phonenumber = $('#phonenumber-text').val()
 
-            let only_number = isNaN(phonenumber.replace('-'))
+            let only_number = isNaN(phonenumber.replace(/-/gi, ""))
 
             if (name == ''){
                 alert('이름을 입력하세요!');
