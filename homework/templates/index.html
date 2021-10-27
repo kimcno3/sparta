@@ -86,43 +86,21 @@
             let name = $('#name-text').val()
             let count = $('#count-text').val()
             let address = $('#address-text').val()
-            let phonenumber = $('#phonenumber-text').val()
+            let phoneNumber = $('#phoneNumber-text').val()
 
-            let only_number = isNaN(phonenumber.replace(/-/gi, ""))
-
-            function ordered_name(name) {
-
-            }
-
-            if (name == ''){
-                alert('이름을 입력하세요!');
-            } else if (count == ''){
-                alert('개수를 입력하세요!');
-            } else if (address == ''){
-                alert('주소를 입력하세요!');
-            } else if (phonenumber == ''){
-                alert('번호를 입력하세요!');
-            } else if (phonenumber.includes('-', 3) == false) {
-                alert('양식을 지켜서 입력하세요!(010-xxxx-xxxx)');
-            } else if (phonenumber.includes('-', 8) == false) {
-                alert('양식을 지켜서 입력하세요!(010-xxxx-xxxx)');
-            } else if (only_number == true){
-                alert('문자가 입력되었습니다. 입력한 번호를 다시 확인하세요!!');
-            } else {
-                $.ajax({
-                    type: "POST",
-                    url: "/order",
-                    data: { name_give: name,
-                        count_give: count,
-                        address_give: address,
-                        phonenumber_give: phonenumber
-                    },
-                    success: function (response) {
-                        alert(response["msg"]);
-                        window.location.reload();
-                    }
-                })
-            }
+            $.ajax({
+                type: "POST",
+                url: "/order",
+                data: { name_give: name,
+                    count_give: count,
+                    address_give: address,
+                   phoneNumber_give: phoneNumber
+                },
+                success: function (response) {
+                    alert(response["msg"]);
+                    window.location.reload();
+                }
+            })
         }
 
         function order_listing() {
@@ -136,13 +114,13 @@
                         let address = orders[i]['address']
                         let count= orders[i]['count']
                         let name = orders[i]['name']
-                        let phonenumber= orders[i]['phonenumber']
+                        let phoneNumber= orders[i]['phoneNumber']
 
                         let temp_html = `<tr>
                                         <th scope="row">${name}</th>
                                         <td>${count}</td>
                                         <td>${address}</td>
-                                        <td>${phonenumber}</td>
+                                        <td>${phoneNumber}</td>
                                     </tr>`
                         $('#order-list').append(temp_html)
                     }
@@ -158,7 +136,7 @@
                 success: function (response) {
                     let rate = response['rate'];
                     let temp_html = `${rate}`;
-                    $('#dollartowon').append(temp_html);
+                    $('#dollarToWon').append(temp_html);
 
                 }
             })
@@ -173,9 +151,9 @@
         <div class="description">
             <h1>사과를 팝니다 <span class="description_price">가격: 1,000원/개</span></h1>
             <p>이 사과는 먹으면 기분이 좋아지는 효과가 있어요. 이유는 그냥 달고 맛있거든요😁</p>
-            <p>오늘의 환율($ → ₩) : <span id="dollartowon"> </span> 원</p>
+            <p>오늘의 환율($ → ₩) : <span id="dollarToWon"> </span> 원</p>
         </div>
-        <div class="orderbox">
+        <div class="orderBox">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">주문자 이름</span>
@@ -206,10 +184,10 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">전화번호</span>
                 </div>
-                <input type="text" id="phonenumber-text" class="form-control" aria-label="Default"
+                <input type="text" id="phoneNumber-text" class="form-control" aria-label="Default"
                        aria-describedby="inputGroup-sizing-default">
             </div>
-            <button onclick = ordered() type="button" class="btn-primary">주문하기</button>
+            <button onclick = "ordered()" type="button" class="btn-primary">주문하기</button>
         </div>
         <table class="table">
             <thead>
