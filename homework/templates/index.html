@@ -8,7 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Google fonts 추가    -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,25 +19,27 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
 
     <title>나만의 쇼핑몰</title>
-    <meta property="og:title" content="나만의 쇼핑몰" />
-    <meta property="og:description" content="맛있는 사과사세요~~🍎" />
-    <meta property="og:image" content="{{ url_for('static', filename='ogimage.png') }}" />
+    <meta property="og:title" content="나만의 쇼핑몰"/>
+    <meta property="og:description" content="맛있는 사과사세요~~🍎"/>
+    <meta property="og:image" content="{{ url_for('static', filename='ogimage.png') }}"/>
 
     <style>
         * {
             font-family: 'Nanum Gothic', sans-serif;
         }
+
         .wrap {
             width: 700px;
             margin: 50px auto auto auto;
         }
+
         .img {
             width: 700px;
             height: 500px;
@@ -51,11 +53,13 @@
         .description {
             font-size: 20px;
         }
+
         .description_price {
             font-weight: normal;
             font-size: 20px;
 
         }
+
         .btn-primary {
             font-size: 20px;
 
@@ -65,22 +69,47 @@
 
             border-radius: 5px;
         }
+
+        .btn-outline-secondary {
+            display: block;
+            width: auto;
+            margin: auto 0px auto auto;
+
+            border-radius: 5px;
+        }
+
         #dollartowon {
-            color:blue;
+            color: blue;
 
         }
+
         .table {
             margin: 20px auto 20px auto;
             text-align: center;
         }
+
+        .orderBox {
+            display: none;
+            margin-top: 10px;
+        }
+
     </style>
 
     <script>
-
         $(document).ready(function () {
-            dollar_to_won();
+            dollar_to_won()
             order_listing();
-        })
+        }
+        
+        function openClose() {
+            if ($('#order-box').css('display') == 'block') {
+                $('#order-box').hide();
+                $('#orderbox-button').text('주문서 펼치기');
+            } else {
+                $('#order-box').show();
+                $('#orderbox-button').text('주문서 숨기기');
+            }
+        }
 
         function ordered() {
             let name = $('#name-text').val()
@@ -91,10 +120,11 @@
             $.ajax({
                 type: "POST",
                 url: "/order",
-                data: { name_give: name,
+                data: {
+                    name_give: name,
                     count_give: count,
                     address_give: address,
-                   phoneNumber_give: phoneNumber
+                    phoneNumber_give: phoneNumber
                 },
                 success: function (response) {
                     alert(response["msg"]);
@@ -110,11 +140,11 @@
                 data: {},
                 success: function (response) {
                     let orders = response['order_list'] // 서버로 부터 받아온 딕셔너리가 response 안에 있으니 'order_list'로 다시 변수 지정
-                    for (let i=0; i<orders.length; i++) {
+                    for (let i = 0; i < orders.length; i++) {
                         let address = orders[i]['address']
-                        let count= orders[i]['count']
+                        let count = orders[i]['count']
                         let name = orders[i]['name']
-                        let phoneNumber= orders[i]['phoneNumber']
+                        let phoneNumber = orders[i]['phoneNumber']
 
                         let temp_html = `<tr>
                                         <th scope="row">${name}</th>
@@ -128,6 +158,7 @@
                 }
             })
         }
+
         function dollar_to_won() {
             $.ajax({
                 type: "GET",
@@ -146,62 +177,63 @@
 </head>
 
 <body>
-    <div class="wrap">
-        <div class="img"> </div>
-        <div class="description">
-            <h1>사과를 팝니다 <span class="description_price">가격: 1,000원/개</span></h1>
-            <p>이 사과는 먹으면 기분이 좋아지는 효과가 있어요. 이유는 그냥 달고 맛있거든요😁</p>
-            <p>오늘의 환율($ → ₩) : <span id="dollarToWon"> </span> 원</p>
-        </div>
-        <div class="orderBox">
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">주문자 이름</span>
-                </div>
-                <input type="text" id="name-text" class="form-control" aria-label="Default"
-                       aria-describedby="inputGroup-sizing-default">
-            </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <label class="input-group-text" for="count-text">개수</label>
-                </div>
-                <select class="custom-select" id="count-text">
-                    <option selected></option>
-                    <option value="1개">1개</option>
-                    <option value="3개">3개</option>
-                    <option value="6개">6개</option>
-                    <option value="12개">12개</option>
-                </select>
-            </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">주소</span>
-                </div>
-                <input type="text" id="address-text" class="form-control" aria-label="Default"
-                       aria-describedby="inputGroup-sizing-default">
-            </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">전화번호</span>
-                </div>
-                <input type="text" id="phoneNumber-text" class="form-control" aria-label="Default"
-                       aria-describedby="inputGroup-sizing-default">
-            </div>
-            <button onclick = "ordered()" type="button" class="btn-primary">주문하기</button>
-        </div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">주문자 이름</th>
-                    <th scope="col">개수</th>
-                    <th scope="col">주소</th>
-                    <th scope="col">전화번호</th>
-                </tr>
-            </thead>
-            <tbody id="order-list">
-
-            </tbody>
-        </table>
+<div class="wrap">
+    <div class="img"></div>
+    <div class="description">
+        <h1>사과를 팝니다 <span class="description_price">가격: 1,000원/개</span></h1>
+        <p>이 사과는 먹으면 기분이 좋아지는 효과가 있어요. 이유는 그냥 달고 맛있거든요😁</p>
+        <p>오늘의 환율($ → ₩) : <span id="dollarToWon"> </span> 원</p>
     </div>
+    <button id="orderbox-button" onclick="openClose()" class="btn btn-outline-secondary">주문서 펼치기</button>
+    <div class="orderBox" id="order-box">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">주문자 이름</span>
+            </div>
+            <input type="text" id="name-text" class="form-control" aria-label="Default"
+                   aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="count-text">개수</label>
+            </div>
+            <select class="custom-select" id="count-text">
+                <option selected></option>
+                <option value="1개">1개</option>
+                <option value="3개">3개</option>
+                <option value="6개">6개</option>
+                <option value="12개">12개</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">주소</span>
+            </div>
+            <input type="text" id="address-text" class="form-control" aria-label="Default"
+                   aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">전화번호</span>
+            </div>
+            <input type="text" id="phoneNumber-text" class="form-control" aria-label="Default"
+                   aria-describedby="inputGroup-sizing-default">
+        </div>
+        <button id='order-button' onclick="ordered()" type="button" class="btn-primary">주문하기</button>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">주문자 이름</th>
+            <th scope="col">개수</th>
+            <th scope="col">주소</th>
+            <th scope="col">전화번호</th>
+        </tr>
+        </thead>
+        <tbody id="order-list">
+
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
