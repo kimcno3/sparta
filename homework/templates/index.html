@@ -39,15 +39,15 @@
 </head>
 
 <body>
-<div class="wrap">
-    <div class='grid1'>
+    <div class="wrap">
         <div class="img"></div>
         <div class="description">
             <h1>사과를 팝니다 <span class="description_price">가격: 1,000원/개</span></h1>
             <p>이 사과는 먹으면 기분이 좋아지는 효과가 있어요. 이유는 그냥 달고 맛있거든요😁</p>
             <p class="todayDollar">오늘의 환율($ → ₩) : <span id="dollarToWon"> </span> 원</p>
         </div>
-        <button id="orderbox-button" onclick="openClose()" class="btn btn-outline-secondary">주문서 펼치기</button>
+        <button id="orderbox-button" onclick="openClose_orderBox()" class="btn btn-outline-secondary">주문서 열기</button>
+        <button id='orderlist-button' onclick="openClose_orderlist()" type="button" class="btn btn-outline-secondary">주문현황 닫기</button>
         <div class="orderBox" id="order-box">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -84,10 +84,7 @@
             </div>
             <button id='order-button' onclick="ordered()" type="button" class="btn-primary">주문하기</button>
         </div>
-    </div>
-    <div class='grid2'>
-        <div class = 'orderList-Header'><h2>주문자 목록</h2></div>
-        <table class="table">
+        <table id = 'orderlist-table' class="table">
             <thead>
             <tr>
                 <th scope="col">주문자 이름</th>
@@ -101,6 +98,5 @@
             </tbody>
         </table>
     </div>
-</div>
 </body>
 </html>

@@ -3,14 +3,36 @@ $(document).ready(function () {
     order_listing();
 });
 
-function openClose() {
+function openClose_orderBox() {
     if ($('#order-box').css('display') == 'block') {
         $('#order-box').hide();
-        $('#orderbox-button').text('주문서 펼치기');
-    } else {
+        $('#orderbox-button').text('주문서 열기');
+    } else if ($('#orderlist-table').css('display') == 'table') {
+        $('#orderlist-table').hide();
+        $('#orderlist-button').text('주문현황 열기');
         $('#order-box').show();
-        $('#orderbox-button').text('주문서 숨기기');
+        $('#orderbox-button').text('주문서 닫기');
+    }else {
+        $('#order-box').show();
+        $('#orderbox-button').text('주문서 닫기');
     }
+
+}
+
+function openClose_orderlist() {
+    if ($('#orderlist-table').css('display') == 'table') {
+        $('#orderlist-table').hide();
+        $('#orderlist-button').text('주문현황 열기');
+    } else if ($('#order-box').css('display') == 'block') {
+        $('#order-box').hide();
+        $('#orderbox-button').text('주문서 열기');
+        $('#orderlist-table').show();
+        $('#orderlist-button').text('주문현황 닫기');
+    } else {
+        $('#orderlist-table').show();
+        $('#orderlist-button').text('주문현황 닫기');
+    }
+
 }
 
 function ordered() {
@@ -56,7 +78,6 @@ function order_listing() {
                                     </tr>`
                 $('#order-list').append(temp_html)
             }
-
         }
     })
 }
