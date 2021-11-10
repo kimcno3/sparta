@@ -13,10 +13,6 @@ db = client.dbhomework
 def homework():
     return render_template('index.html')
 
-@app.route('/orderPage')
-def order_page():
-    return render_template('orderPage.html')
-
 # 주문하기(POST) API
 @app.route('/order', methods=['POST'])
 def save_order():
