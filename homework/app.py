@@ -8,11 +8,14 @@ from pymongo import MongoClient
 client = MongoClient('localhost', 27017)
 db = client.dbhomework
 
-
 # HTML 화면 보여주기
 @app.route('/')
 def homework():
     return render_template('index.html')
+
+@app.route('/orderPage')
+def order_page():
+    return render_template('orderPage.html')
 
 # 주문하기(POST) API
 @app.route('/order', methods=['POST'])
