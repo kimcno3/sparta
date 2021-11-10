@@ -13,6 +13,7 @@ db = client.dbsparta
 def home():
    return render_template('index.html')
 
+## API 역할을 하는 부분
 @app.route('/memo', methods=['GET'])
 def listing():
     articles = list(db.articles.find({}, {'_id': False}))
