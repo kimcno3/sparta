@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8cffb8c3-19ce-43f4-aa52-ba71253fbf0a" name="Changes" comment="" />
+    <list default="true" id="8cffb8c3-19ce-43f4-aa52-ba71253fbf0a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projects/alonememo/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/../projects/alonememo/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonprac/genie.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonprac/genie.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +21,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -35,10 +45,12 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -51,6 +63,9 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.app">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/homework/templates/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="homework" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -98,6 +113,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.app" />
+        <item itemvalue="JavaScript Debug.index.html" />
         <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
@@ -128,6 +144,17 @@
       <workItem from="1635343625724" duration="6452000" />
       <workItem from="1635433336467" duration="1496000" />
       <workItem from="1635834413838" duration="27000" />
+      <workItem from="1636263869765" duration="38000" />
+      <workItem from="1636271973743" duration="6000" />
+      <workItem from="1636296999889" duration="53000" />
+      <workItem from="1636297423413" duration="111000" />
+      <workItem from="1636441813238" duration="35000" />
+      <workItem from="1636442335481" duration="3886000" />
+      <workItem from="1636465705935" duration="1620000" />
+      <workItem from="1636467792759" duration="3948000" />
+      <workItem from="1636477372548" duration="232000" />
+      <workItem from="1636518150593" duration="12000" />
+      <workItem from="1636520022947" duration="4114000" />
     </task>
     <servers />
   </component>
@@ -135,7 +162,7 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/homework$app.coverage" NAME="app Coverage Results" MODIFIED="1635316088913" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/homework$app.coverage" NAME="app Coverage Results" MODIFIED="1636521956825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/homework$test.coverage" NAME="test Coverage Results" MODIFIED="1633593210858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../.." />
   </component>
 </project>
