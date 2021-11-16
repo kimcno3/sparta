@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8cffb8c3-19ce-43f4-aa52-ba71253fbf0a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../projects/alonememo/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/../projects/alonememo/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pythonprac/genie.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonprac/genie.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +151,9 @@
       <workItem from="1636467792759" duration="3948000" />
       <workItem from="1636477372548" duration="232000" />
       <workItem from="1636518150593" duration="12000" />
-      <workItem from="1636520022947" duration="4114000" />
+      <workItem from="1636520022947" duration="4423000" />
+      <workItem from="1636525746894" duration="260000" />
+      <workItem from="1637037884521" duration="1409000" />
     </task>
     <servers />
   </component>
@@ -162,7 +161,7 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/homework$app.coverage" NAME="app Coverage Results" MODIFIED="1636521956825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/homework$app.coverage" NAME="app Coverage Results" MODIFIED="1637038546284" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/homework$test.coverage" NAME="test Coverage Results" MODIFIED="1633593210858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../.." />
   </component>
 </project>
