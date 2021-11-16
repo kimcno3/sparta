@@ -34,12 +34,19 @@ function openClose_orderlist() {
     }
 
 }
-
+function checkBlank(name, count, address, phoneNumber){
+    if(name === '' || count === '' || address === '' || phoneNumber === ''){
+        alert('모든 정보를 입력해주세요');
+        return false;
+    }
+}
 function ordered() {
     let name = $('#name-text').val()
     let count = $('#count-text').val()
     let address = $('#address-text').val()
     let phoneNumber = $('#phoneNumber-text').val()
+
+    if (checkBlank(name, count, address, phoneNumber) === false) return;
 
     $.ajax({
         type: "POST",
